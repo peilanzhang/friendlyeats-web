@@ -52,6 +52,7 @@ FriendlyEats.prototype.getDocumentsInQuery = function (query, renderer) {
 };
 
 FriendlyEats.prototype.getRestaurant = function (id) {
+  return firebase.firestore().collection('restaurants').doc(id).get();
   /*
     TODO: Retrieve a single restaurant
   */
