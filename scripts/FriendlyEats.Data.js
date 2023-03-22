@@ -24,6 +24,11 @@ FriendlyEats.prototype.addRestaurant = function (data) {
 };
 
 FriendlyEats.prototype.getAllRestaurants = function (renderer) {
+  var query = firebase.firestore()
+    .collection('restaurants')
+    .orderBy('avgRating', 'desc')
+    .limit(50);
+  this.getDocumentsInQuery(query, renderer);
   /*
     TODO: Retrieve list of restaurants
   */
